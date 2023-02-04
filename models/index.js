@@ -12,6 +12,6 @@ db.userOTPVerification = require("./otpVerification");
 db.attempt = require('./attempt');
 db.event = require('./event');
 db.token = require('./token');
-
+db.category = require('./category');
 
 module.exports = db;
