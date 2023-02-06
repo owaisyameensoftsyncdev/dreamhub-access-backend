@@ -4,19 +4,21 @@ const { deleteManyDocument } = require("../../../helpers/index");
 const resendOTPVerificationCode = async (req, res) => {
   try {
     const { userId, email } = req.body;
-    if (!userId || !email) {
+    if ( !email) {
       throw new Error("Empty user details are not allowed");
     } else {
       const deleteOtp = await deleteManyDocument("userOTPVerification", {
-        userId,
+      _id: userId,
       });
       
     await  sendOTPVerificationEmail(req, res);
 
 
-      return res
-        .status(200)
-        .json({ status: 200, message: sendOTPVerificationEmail });
+return "send email successfully"
+
+      // res
+      //   .status(200)
+      //   .json({ status: 200, message: sendOTPVerificationEmail });
     }
   } catch (error) {
     res.json({

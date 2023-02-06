@@ -9,12 +9,12 @@ const bcrypt = require("bcryptjs");
 
 const verifyOTP = async (req, res) => {
   try {
-    const { userId, otp } = req.body;
-    if (!userId || !otp) {
+    const { otp } = req.body;
+    if ( !otp) {
       throw Error("Empty otp details are not allowed");
     } else {
       const UserOTPVerificationRecords = await find("userOTPVerification", {
-        userId,
+        otp: otp,
       });
 
       console.log(UserOTPVerificationRecords, "UserOTPVerificationRecords...");
@@ -24,7 +24,8 @@ const verifyOTP = async (req, res) => {
         throw new Error(
           "Account record doesnot exist or has been verified already."
         );
-      } else {
+      }
+       else {
         // user otp record exists
         const { expiresAt } = UserOTPVerificationRecords[0];
         const hashedOTP = UserOTPVerificationRecords[0].otp;
@@ -35,13 +36,15 @@ const verifyOTP = async (req, res) => {
         if (expiresAt < Date.now()) {
 
           const deleteOtp = await deleteManyDocument("userOTPVerification", {
-            userId,
+            otp:otp,
           });
 
            throw new Error("Code has expired. Please request again");
          } 
          else {
-          const validOTP = await bcrypt.compare(otp, hashedOTP);
+//          const validOTP = await bcrypt.compare(otp, hashedOTP);
+
+const validOTP = otp
 
 console.log(validOTP, "vaidotp...");
 
@@ -52,9 +55,9 @@ console.log(validOTP, "vaidotp...");
 
         else {
             // success
-            await updateDocument("user", { _id: userId }, { verified: true });
-            //  await UserOTPVerification.deleteMany({ userId });
-            await deleteManyDocument("userOTPVerification", { userId });
+        //    await updateDocument("user", { _id: userId }, { verified: true });
+             // await userOTPVerification.deleteMany({ otp:otp });
+            await deleteManyDocument("userOTPVerification", {otp: otp });
             
             res.status(200).json({
               status: "VERIFIED",

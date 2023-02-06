@@ -32,6 +32,8 @@ const createProfile = async (req, res) => {
             return res.status(400).send({ status: 400, message: "No User Found" });
         }
 
+console.log(user,"user....");
+
         // if (email) {
         //     let check_email = await findOne("user", { email });
         //     if (check_email) {
@@ -62,6 +64,9 @@ const createProfile = async (req, res) => {
             profile_img: result.secure_url,
             profile_img_url: result.public_id,
         });
+
+
+console.log(profileUser,"profileuser.....");
 
        const profileCreate = await insertNewDocument("profile", (profileUser))
 

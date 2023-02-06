@@ -57,7 +57,7 @@ const signupWithEmail = async (req, res) => {
     return res.status(200).send({ status: 200, user, token });
   } catch (e) {
     console.log(e);
-    return res.status(400).send({ status: 400, message: e.message });
+    return res.status(500).send({ status: 500, message: e.message });
   }
 };
 
