@@ -22,6 +22,12 @@ const profileSchema = new mongoose.Schema(
             type: SchemaType.TypeString,
             enum: ["Male", "Female", "Other"]
         },
+        category: {
+            type: SchemaType.TypeString,
+            categories: [],
+            default:" Choose your interest"
+           
+        },
         preference: {
             type: SchemaType.TypeString,
         },

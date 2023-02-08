@@ -10,6 +10,7 @@ const schema = Joi.object({
     wallet: Joi.string(),
     city: Joi.string(),
     gender: Joi.string(),
+    category: Joi.string(),
     preference: Joi.string(),
     profile_img: Joi.string(),
     profile_img_url: Joi.string(),

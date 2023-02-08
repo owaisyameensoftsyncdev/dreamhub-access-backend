@@ -1,5 +1,5 @@
 
-// // var admin = require("firebase-admin");
+// var admin = require("firebase-admin");
 
 // // var serviceAccount = require("../../../dh-access-firebase-adminsdk-au8sl-93751fff94.json");
 
@@ -33,17 +33,56 @@
 
 // const sendToAll = (req, res) => {
 //     try {
-//         var notification = {
-//             "title": 'Title of Notification',
-//             "text": 'Subtitle'
+       
+       
+       
+       
+       
+       
+       
+       
+//         var serviceAccount = require("../../../dh-access-firebase-adminsdk-au8sl-93751fff94.json");
+
+
+//         admin.initializeApp({
+//           credential: admin.credential.cert(serviceAccount)
+//         });
+        
+//         var registrationToken = "";
+        
+//         var payload = {
+//             data: {
+//                 Mykey1: "Hello firebase"
+//             }
 //         };
+        
+//         var options = {
+//             priority: "high",
+//             timeToLive: 60 * 60 * 24
+//         };
+        
+//         admin.messaging().sendToDevice(registrationToken, payload, options)
+//         .then(function (response) {
+//             console.log("Successfully sent message:", response);
+//         })
+//         .catch(function (error) {
+//             console.log("Error sending message:", error);
+//         })
+       
+       
+       
+       
+//         // var notification = {
+//         //     "title": 'Title of Notification',
+//         //     "text": 'Subtitle'
+//         // };
 
-//         var fcm_tokens = [];
+//         // var fcm_tokens = [];
 
-//         var notification_body = {
-//             'notification': notification,
-//             'registration_ids': fcm_tokens
-//         }
+//         // var notification_body = {
+//         //     'notification': notification,
+//         //     'registration_ids': fcm_tokens
+//         // }
 
 
 //         // const axiosGetCall = async () => {

@@ -7,6 +7,11 @@ const userSchema = new mongoose.Schema(
       type: schemaType.TypeString,
      
     },
+    events:[ {
+      type: schemaType.TypeString,
+      //ref: "event",
+      
+    }],
     // first_Name: {
     //   type: schemaType.TypeString,
     // },

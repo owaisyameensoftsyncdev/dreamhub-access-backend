@@ -6,15 +6,15 @@ const { ObjectID } = require("../../../types");
 const upComingEvents = async (req, res) => {
     try {
 
-        const _id = req.params.id;
+     //   const _id = req.params.id;
 
-        const userid = await findOne("user", { _id });
+       // const userid = await findOne("user", { _id });
 
      //   console.log(userid, "userid...");
 
-        if (!userid) {
-            return res.status(404).send({ status: 404, message: "No User Found" });
-        }
+        // if (!userid) {
+        //     return res.status(404).send({ status: 404, message: "No User Found" });
+        // }
 
         //Events banners
         //const profileBanner = await find("event");
@@ -55,11 +55,11 @@ console.log(typeof(dateStr), "datestr....", dateStr);
         // const convertObj = JSON.stringify(eventList);
         // console.log(typeof(convertObj));
       
-        // let futureEvent = eventList.filter(obj=> new Date(obj.timeMin).toDateString() === new Date('2023-01-28').toDateString()) 
+        // let futureEvent = eventList.filter(obj=> new Date(obj.timeMin).toDateString() > new Date('2023-01-28').toDateString()) 
         // console.log(eventList);
       
 
-        let futureEvent1 = eventList.filter(obj=> new Date(obj.timeMin).toDateString() > new Date().toDateString()) 
+        let futureEvent1 = eventList.filter(obj=> new Date(obj.timeMin).toDateString() === new Date().toDateString()) 
         console.log(futureEvent1);
 
         // let pastEvent = eventList.filter(obj=> new Date(obj.timeMin).toDateString() < new Date('2023-01-28').toDateString()) 

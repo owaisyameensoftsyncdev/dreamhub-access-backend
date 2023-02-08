@@ -38,13 +38,29 @@ const eventSchema = new mongoose.Schema(
             coordinates: [],
             // required: [true,"Please provide the location"]
         },
+        price: {
+            type: SchemaType.TypeString,
+            //required: [true,"Please provide the event name"]
+        },
+        place: {
+            type: SchemaType.TypeString,
+            //required: [true,"Please provide the event name"]
+        },
 
         // location: {
         //     type: 
         //         SchemaType.TypeString,
         //         coordinates: []
         //    },
-        ticket: {
+        totalticket: {
+            type: SchemaType.TypeNumber,
+            default: 100,
+        },
+        remainingticket: {
+            type: SchemaType.TypeNumber,
+            default: 100,
+        },
+        soldticket: {
             type: SchemaType.TypeNumber,
             default: 0,
         },
