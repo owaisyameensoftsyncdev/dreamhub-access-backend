@@ -20,12 +20,12 @@ const profileSchema = new mongoose.Schema(
 
         gender: {
             type: SchemaType.TypeString,
-            enum: ["Male", "Female", "Other"]
+            //enum: ["Male", "Female", "Other"]
         },
         category: {
             type: SchemaType.TypeString,
             categories: [],
-            default:" Choose your interest"
+            default: "Choose your interest"
            
         },
         preference: {
@@ -35,6 +35,9 @@ const profileSchema = new mongoose.Schema(
             type: SchemaType.TypeString,
         },   
         profile_img_url: {
+            type: SchemaType.TypeString,
+        }, 
+        userID: {
             type: SchemaType.TypeString,
         },      
     },

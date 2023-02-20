@@ -12,7 +12,7 @@ const allCategory = async (req, res) => {
         }
 		
 		
-		return res.status(200).send({ status: 200, category });
+		return res.status(200).send({ status: 200, category,mainCategoies:["education","music","food","sports","painting","other"] });
 		
 	} catch (e) {
 		console.log(e);

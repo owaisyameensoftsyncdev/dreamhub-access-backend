@@ -36,9 +36,9 @@ const server = http.createServer(app);
 var db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:")),
-db.once("open", async function () {
-  console.log("db connected!");
-});
+  db.once("open", async function () {
+    console.log("db connected!");
+  });
 
 
 // * Cors
@@ -58,13 +58,27 @@ app.use(
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(morgan("short"));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // * Api routes
 app.use(
   "/api/v1",
   (req, res, next) => {
     req.web3 = web3;
     req.Web3 = Web3;
-   //req.io = io;
+    //req.io = io;
 
     // req.gfs = gfs;
     next();
@@ -76,7 +90,7 @@ app.use(
 app.get("/", async (req, res, next) => {
   console.log("hello world");
   res.send("check");
-   return res.status(200).json({ status: 200, message: "Dreamub-app" });
+  return res.status(200).json({ status: 200, message: "Dreamub-app" });
 });
 
 
@@ -97,6 +111,6 @@ app.use("*", (req, res) => {
 let PORT = process.env.PORT || 5001;
 
 server.listen(PORT, () => {
-   console.log(`Server is running on PORT http://localhost:${PORT}`);
+  console.log(`Server is running on PORT http://localhost:${PORT}`);
 });
 

@@ -31,9 +31,10 @@ const popEvent = async (req, res) => {
         const eventList = await find("event");
 
 
-        let futureEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() === new Date().toDateString())
+//        let futureEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() === new Date().toDateString())
 
-      
+        let futureEvent = eventList.filter(obj => new Date(obj.startDate).toDateString() === new Date().toDateString())
+
         // console.log(eventList);
 
         console.log(futureEvent, "futureEvent...");

@@ -59,7 +59,7 @@ console.log(typeof(dateStr), "datestr....", dateStr);
         // console.log(eventList);
       
 
-        let futureEvent1 = eventList.filter(obj=> new Date(obj.timeMin).toDateString() === new Date().toDateString()) 
+        let futureEvent1 = eventList.filter(obj=> new Date(obj.startDate).toDateString() > new Date().toDateString()) 
         console.log(futureEvent1);
 
         // let pastEvent = eventList.filter(obj=> new Date(obj.timeMin).toDateString() < new Date('2023-01-28').toDateString()) 

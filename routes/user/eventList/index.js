@@ -5,7 +5,7 @@ const eventList = require("./eventList");
 const router = express.Router();
 
 
-router.get("/getevents/:id", eventList);
+router.get("/getevents", eventList);
 
 
 module.exports = router;

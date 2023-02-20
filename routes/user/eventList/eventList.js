@@ -5,17 +5,17 @@ const { ObjectID } = require("../../../types");
 
 const eventList = async (req, res) => {
     try {
-        const _id = req.params.id;
+      //  const _id = req.params.id;
 
         //const banner_img = req.body
 
-        const userid = await findOne("user", { _id });
+     //   const userid = await findOne("user", { _id });
 
         //   console.log(userid, "userid...");
 
-        if (!userid) {
-            return res.status(404).send({ status: 404, message: "No User Found" });
-        }
+        // if (!userid) {
+        //     return res.status(404).send({ status: 404, message: "No User Found" });
+        // }
 
         //Events banners
         //const profileBanner = await find("event",);
@@ -47,12 +47,16 @@ const eventList = async (req, res) => {
         const eventList = await find("event");
 
 
-        let todayEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() === new Date().toDateString())
+        // let todayEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() === new Date().toDateString())
         
+        let todayEvent = eventList.filter(obj => new Date(obj.startDate).toDateString() === new Date().toDateString())
+       
         console.log(todayEvent);
         // console.log(eventList);
 
-        let futureEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() > new Date().toDateString())
+//        let futureEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() > new Date().toDateString())
+
+        let futureEvent = eventList.filter(obj => new Date(obj.startDate).toDateString() > new Date().toDateString())
 
         console.log(futureEvent, "futureEvent...");
 
@@ -64,7 +68,9 @@ const eventList = async (req, res) => {
 
         //   const pastEventList = await find("event");
 
-        let pastEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() < new Date().toDateString())
+        //let pastEvent = eventList.filter(obj => new Date(obj.timeMin).toDateString() < new Date().toDateString())
+       
+        let pastEvent = eventList.filter(obj => new Date(obj.endDate).toDateString() < new Date().toDateString())
         // console.log(pastEvent);
 
 

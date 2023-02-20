@@ -13,15 +13,45 @@ const eventSchema = new mongoose.Schema(
             //required: [true,"Please provide the person name"]
 
         },
-        banner_img: {
-            type: SchemaType.TypeString,
-            //required: [true,"Please provide the banner image"]
+       
+        // banner_img: {
+        //     type: SchemaType.TypeString,
+        //     //required: [true,"Please provide the banner image"]
 
-        },
+        // },
 
-        banner_img_url: {
-            type: SchemaType.TypeString,
-        },
+        // banner_img_url: {
+        //     type: SchemaType.TypeString,
+        // },
+
+bundle_image: {
+    image: {
+        type: SchemaType.TypeArray,
+    },
+
+    image_url: {
+        type: SchemaType.TypeArray,
+    },
+
+},
+
+        // image: {
+        //     type: SchemaType.TypeArray,
+        // },
+
+        // image_url: {
+        //     type: SchemaType.TypeArray,
+        // },
+
+        // pass_img: {
+        //     type: SchemaType.TypeString,
+        //     //required: [true,"Please provide the banner image"]
+
+        // },
+
+        // pass_img_url: {
+        //     type: SchemaType.TypeString,
+        // },
 
         eventName: {
             type: SchemaType.TypeString,
@@ -91,7 +121,9 @@ const eventSchema = new mongoose.Schema(
         //     default: new Date().toISOString(),
         // },
 
-
+        userID: {
+            type: SchemaType.TypeString,
+        },  
 
         timeinsec: {
 

@@ -4,8 +4,11 @@ const { ObjectID } = require("../../../types");
 const getProfile = async (req, res) => {
 	try {
 		const _id = req.params.id;
-		
-        const profileid = await findOne("profile", {_id});
+	
+
+
+
+       const profileid = await findOne("profile", {userID:_id});
 
         if(!_id) {
             return res.status(404).send({ status: 404, message: "No User Found" });
