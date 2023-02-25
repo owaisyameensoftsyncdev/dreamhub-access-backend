@@ -58,7 +58,7 @@ const eventList = async (req, res) => {
 
         let futureEvent = eventList.filter(obj => new Date(obj.startDate).toDateString() > new Date().toDateString())
 
-        console.log(futureEvent, "futureEvent...");
+        console.log(futureEvent, "futureEvent.......");
 
         if (!futureEvent) {
             return res.status(404).send({ status: 404, message: "No events Found" });
