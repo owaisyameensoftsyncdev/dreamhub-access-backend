@@ -108,7 +108,7 @@ app.use("*", (req, res) => {
   res.status(404).send("Route not found");
 });
 
-let PORT = process.env.PORT || 5001;
+let PORT = process.env.PORT || 5002;
 
 server.listen(PORT, () => {
   console.log(`Server is running on PORT http://localhost:${PORT}`);
