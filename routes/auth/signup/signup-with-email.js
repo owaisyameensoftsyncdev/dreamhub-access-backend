@@ -13,7 +13,7 @@ const schema = Joi.object({
  username: Joi.string().required(),
   email: Joi.string().email().required(),
   //password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
-  password:Joi.string().pattern(new RegExp("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/")), 
+  password:Joi.string(), 
   confirm_password: Joi.string().required().valid(Joi.ref("password")),
   type: Joi.string().required(),
 });
@@ -58,7 +58,7 @@ const signupWithEmail = async (req, res) => {
     return res.status(200).send({ status: 200, user, token });
   } catch (e) {
     console.log(e);
-    return res.status(500).send({ status: 500});
+    return res.status(500).send({ status: 500, msg: "Please check your password"});
   }
 };
 
