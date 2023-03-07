@@ -12,7 +12,8 @@ const schema = Joi.object({
  // full_Name: Joi.string().required(),
  username: Joi.string().required(),
   email: Joi.string().email().required(),
-  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
+  //password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{6,30}$")).required(),
+  password:Joi.string().pattern(new RegExp("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/")).required(), 
   confirm_password: Joi.string().required().valid(Joi.ref("password")),
   type: Joi.string().required(),
 });
@@ -57,7 +58,7 @@ const signupWithEmail = async (req, res) => {
     return res.status(200).send({ status: 200, user, token });
   } catch (e) {
     console.log(e);
-    return res.status(500).send({ status: 500, message: e.message, msg: "Please include characters ^a-zA-Z0-9$" });
+    return res.status(500).send({ status: 500, message: e.message, msg: "Password must be strong. At least one upper case alphabet. At least one lower case alphabet. At least one digit. At least one special character. Minimum eight in length" });
   }
 };
 
