@@ -191,7 +191,7 @@ const loginUser = async (req, res) => {
         .send({ status: 404, message: "User does not exist!" });
     }
   } catch (e) {
-    res.status(400).send({ status: 400, message: "Your credentials are incorrect", });
+    res.status(400).send({ status: 400, message: "User and password invalid", });
   }
 };
 

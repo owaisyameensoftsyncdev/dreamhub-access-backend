@@ -77,7 +77,7 @@ console.log(profileUser,"profileuser.....");
             .json({ status: 200, message: "User Profile created Successfully", profileCreate });
     } catch (e) {
         console.log(e);
-        return res.status(400).send({ status: 400, message: e.message,  });
+        return res.status(400).send({ status: 400, message: e.message  });
     }
 };
 
